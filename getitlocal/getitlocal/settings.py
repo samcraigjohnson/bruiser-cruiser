@@ -4,7 +4,7 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    # ('Sam Johnson', 'sjohnson540@gmail.com'),
+     ('Sam Johnson', 'sjohnson540@gmail.com'),
 )
 
 MANAGERS = ADMINS
@@ -107,6 +107,7 @@ ROOT_URLCONF = 'getitlocal.urls'
 WSGI_APPLICATION = 'getitlocal.wsgi.application'
 
 TEMPLATE_DIRS = (
+    "/home/html/django_templates",
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -120,10 +121,10 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Uncomment the next line to enable the admin:
-    # 'django.contrib.admin',
+    'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
-    'polls',
+    'mainsite',
 )
 
 # A sample logging configuration. The only tangible logging
