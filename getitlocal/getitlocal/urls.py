@@ -5,16 +5,8 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'getitlocal.views.home', name='home'),
-    # url(r'^getitlocal/', include('getitlocal.foo.urls')),
-    url(r'^stores/$', 'mainsite.views.index'),
-    url(r'^stores/(?P<store_id>\d+)/$', 'mainsite.views.detail'),
-
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
+    url(r'^$', 'mainsite.views.homepage'),
+    url(r'^stores/', include('mainsite.urls')),
     url(r'^admin/', include(admin.site.urls)),
-    
 )
+
