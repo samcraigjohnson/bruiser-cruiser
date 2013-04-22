@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="{{ STATIC_URL }}bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+  <link href="{{ STATIC_URL }}css/homepage_custom.css" rel="stylesheet" type="text/css">
+  {% block head %}{% endblock %}
+  <title>{% block title %}Stocally{% endblock %}</title>
+    
+</head>
+
+<body>
+    <div id="container">
+        {% block container %}
+        <div class="navbar">
+	  <div class="navbar-inner" id="title-nav">
+	    {% block navbarinner %}
+	    <a class="brand" href="#">Stocally</a>
+	    {% block navmenuright %}
+	    <ul class="nav pull-right" id="nav-menu-right">
+	      <li><a href="#">About</a></li>
+	      <li><a href="#">Contact</a></li>
+	      <li><a href="#">Sign in</a></li>
+	    </ul>
+	    {% endblock %}
+	    {% endblock %}
+	  </div> 
+	</div> 
+        {% endblock %}
+	{% block content %}{% endblock %}
+    </div>
+    
+    <footer>
+      <p> Please contact the site admin <a href="mailto:sjohnson540@gmail.com">Sam Johnson</a> with any questions you might have.</p>
+    <footer>
+
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="{{ STATIC_URL }}bootstrap/js/bootstrap.min.js"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

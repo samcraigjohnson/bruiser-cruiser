@@ -5,12 +5,12 @@ from django.http import HttpResponse
 
 def index(request):
     all_stores = Store.objects.all().order_by('name')
-    return render_to_response('stores/index.html', {'all_stores': all_stores})
+    return render_to_response('stores/index.html', {'all_stores': all_stores}, context_instance=RequestContext(request))
 
 def detail(request, store_id):
     s = get_object_or_404(Store, pk=store_id)
 
-    return render_to_response('stores/detail.html', {'store': s})
+    return render_to_response('stores/detail.html', {'store': s}, context_instance=RequestContext(request))
 
 def homepage(request):
     l = "Durham"

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Stocally: Stores{% endblock %}
+
+{% block content %}
+{% if all_stores %}
+    <ul>
+    {% for store in all_stores %}
+        <li><a href="/stores/{{ store.id }}/">{{ store.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No stores are stored.</p>
+{% endif %}
+{% endblock %}
