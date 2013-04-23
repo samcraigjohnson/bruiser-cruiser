@@ -16,3 +16,6 @@ def homepage(request):
     l = "Durham"
     
     return render_to_response('index.html', {'location': l}, context_instance=RequestContext(request))
+
+def login(request):
+    return render_to_response('login.html', {}, context_instance=RequestContext(request))

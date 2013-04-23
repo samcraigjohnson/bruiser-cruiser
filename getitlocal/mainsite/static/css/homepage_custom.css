@@ -1,8 +1,14 @@
 body{
     background-color: #f8f8f8;
 }
-footer{
-    
+#push, #footer{
+    height:60px;   
+}
+#wrap {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -60px;
 }
 #title-nav{
     border-radius:0;

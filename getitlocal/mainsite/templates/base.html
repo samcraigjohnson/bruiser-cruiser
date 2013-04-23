@@ -9,32 +9,50 @@
 </head>
 
 <body>
+  <div id="wrap">
     <div id="container">
-        {% block container %}
-        <div class="navbar">
-	  <div class="navbar-inner" id="title-nav">
-	    {% block navbarinner %}
-	    <a class="brand" href="#">Stocally</a>
+      {% block container %}
+      <div class="navbar">
+	<div class="navbar-inner" id="title-nav">
+	  {% block navbarinner %}
+	  <a class="brand" href="/">Stocally</a>
+	  <ul class="nav" id="nav-menu-left">
+	    {% block navmenuleft %}
+	    <li class="dropdown">
+	      <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Durham <b class="caret"></b></a>
+	      <ul class="dropdown-menu" role="menu">
+		<li><a href="#">Durham</a></li>
+		<li><a href="#">Indianapolis</a></li>
+	      </ul>
+	    </li>
+	    {% endblock %}
+	  </ul>
+	  <ul class="nav pull-right" id="nav-menu-right">
 	    {% block navmenuright %}
-	    <ul class="nav pull-right" id="nav-menu-right">
-	      <li><a href="#">About</a></li>
-	      <li><a href="#">Contact</a></li>
-	      <li><a href="#">Sign in</a></li>
-	    </ul>
+	    <li><a href="#">About</a></li>
+	    <li><a href="#">Contact</a></li>
+	    <li><a href="/login">Owner Login</a></li>
+	    
 	    {% endblock %}
-	    {% endblock %}
-	  </div> 
+	  </ul>
+	  {% endblock %}
 	</div> 
-        {% endblock %}
-	{% block content %}{% endblock %}
+      </div> 
+      {% endblock %}
+      {% block content %}{% endblock %}
     </div>
-    
-    <footer>
-      <p> Please contact the site admin <a href="mailto:sjohnson540@gmail.com">Sam Johnson</a> with any questions you might have.</p>
-    <footer>
-
-    <script src="http://code.jquery.com/jquery.js"></script>
-    <script src="{{ STATIC_URL }}bootstrap/js/bootstrap.min.js"></script>
-    {% block scripts %}{% endblock %}
+    <div id="push"></div>
+  </div>
+  <footer>
+    <div id="footer">
+      <div class="container">
+	<p> Please contact the site admin <a href="mailto:sjohnson540@gmail.com">Sam Johnson</a> with any questions you might have.</p>
+      </div>
+    </div>
+  </footer>
+      
+  <script src="http://code.jquery.com/jquery.js"></script>
+  <script src="{{ STATIC_URL }}bootstrap/js/bootstrap.min.js"></script>
+  {% block scripts %}{% endblock %}
 </body>
 </html>
