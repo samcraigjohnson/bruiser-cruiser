@@ -9,7 +9,7 @@
 </head>
 
 <body>
-  <div id="wrap">
+  
     <div id="container">
       {% block container %}
       <div class="navbar">
@@ -31,7 +31,7 @@
 	    {% block navmenuright %}
 	    <li><a href="#">About</a></li>
 	    <li><a href="#">Contact</a></li>
-	    <li><a href="/login">Owner Login</a></li>
+	    <li><a href="/login">Member Login</a></li>
 	    
 	    {% endblock %}
 	  </ul>
@@ -40,17 +40,14 @@
       </div> 
       {% endblock %}
       {% block content %}{% endblock %}
-    </div>
-    <div id="push"></div>
-  </div>
-  <footer>
-    <div id="footer">
-      <div class="container">
+    
+   <!-- 
+      <footer id="footer">
+	{% block footer %}
 	<p> Please contact the site admin <a href="mailto:sjohnson540@gmail.com">Sam Johnson</a> with any questions you might have.</p>
-      </div>
-    </div>
-  </footer>
-      
+	{% endblock %}
+      </footer> -->
+    </div>      
   <script src="http://code.jquery.com/jquery.js"></script>
   <script src="{{ STATIC_URL }}bootstrap/js/bootstrap.min.js"></script>
   {% block scripts %}{% endblock %}

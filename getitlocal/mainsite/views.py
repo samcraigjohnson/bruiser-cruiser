@@ -1,4 +1,5 @@
 from django.shortcuts import render_to_response, get_object_or_404
+from django.contrib.auth import authenticate, login
 from django.template import RequestContext
 from mainsite.models import Store
 from django.http import HttpResponse
@@ -17,5 +18,22 @@ def homepage(request):
     
     return render_to_response('index.html', {'location': l}, context_instance=RequestContext(request))
 
-def login(request):
+def login_page(request):
     return render_to_response('login.html', {}, context_instance=RequestContext(request))
+
+#This is used to login a user
+def login_user(request):
+    username = request.POST['username']
+    password = request.POST['password']
+    user = authenticate(username=username, password=password)
+    if user is not None:
+        if user.is_active:
+            login(request, user)
+            return request_to_response('profile.html', {'username' : username}, context_instance=RequestContext(request))
+            
+        else:
+            pass
+            # Return a 'disabled account' error message
+    else:
+        pass
+        # Return an 'invalid login' error message.

@@ -1,14 +1,9 @@
 body{
-    background-color: #f8f8f8;
+    background-color: white;
 }
-#push, #footer{
-    height:60px;   
-}
-#wrap {
-    min-height: 100%;
-    height: auto !important;
-    height: 100%;
-    margin: 0 auto -60px;
+#login{
+    border: 0;
+    border-bottom:1px solid #545454;
 }
 #title-nav{
     border-radius:0;
