@@ -3,12 +3,26 @@
 {% block content %}
 <div class="span7 offset3">
   <div class="hero-unit">
-    <form>
+    {% if form.errors %}
+    <p class="text-error"> Wrong username/password </p>
+    {% endif %}
+    <form action="{% url mainsite.views.login_user %}" method="post">
+      {% csrf_token %}
       <fieldset>
 	<legend id="login">Member Login</legend>
-	<input type="text" placeholder="Username"><br/>
-	<input type="password" placeholder="Password"><br/> 
-	<button type="submit" class="btn btn-primary">Login</button>
+	<table>
+	  <tr>
+	    <td>{{ form.username.label_tag }}</td>
+	    <td>{{ form.username }}</td>
+	  </tr>
+	  <tr>
+	    <td>{{ form.password.label_tag }}</td>
+	    <td>{{ form.password }}</td>
+	  </tr>
+	</table>
+	
+	<button  type="submit" value="login" class="btn btn-primary">Login</button>
+	<input type="hidden" name="next" value="{{ next }}" />
       </fieldset>
     </form>
   </div><!--hero close-->
