@@ -1,0 +1,6 @@
+$(function(){
+
+    $('.no-prop').click(function(e){
+	e.stopPropgation();
+    });
+});

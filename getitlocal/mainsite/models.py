@@ -1,13 +1,26 @@
 from django.db import models
+from django.contrib.auth.models import User
+from django.forms import ModelForm
+
+LOCATIONS = (
+    ('Durham', 'DURHAM'), 
+    ('Indianapolis', 'INDY'), 
+    ('Baltimore', 'BMORE')
+    )
+CATS = (('Goods', 'GOODS'),
+        ( 'Services', 'SERVICES'),
+        ('Restaurants', 'STRAUNTS')
+        )
 
 #Used as information about a specific store
 class Store(models.Model):
     name = models.CharField(max_length=500)
-    location = models.TextField()
-    #owner = models.ForeignKey(Owner)
+    location = models.CharField(max_length=25, choices=LOCATIONS)
+    owner = models.ForeignKey(User, editable=False)
     description = models.TextField()
-    category = models.CharField(max_length=100)
-    url = models.URLField()
+    category = models.CharField(max_length=15, choices=CATS)
+    displayurl = models.CharField(max_length=500)
+    url = models.URLField(editable=False)
     
     def __unicode__(self):
         return self.name
@@ -21,3 +34,7 @@ class Ads(models.Model):
     
     def __unicode__(self):
         return self.email
+
+class StoreForm(ModelForm):
+    class Meta:
+        model = Store

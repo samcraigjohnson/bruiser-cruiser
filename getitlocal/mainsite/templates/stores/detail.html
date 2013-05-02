@@ -1,1 +1,9 @@
-<h1>{{ store }}</h1>
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1 class="text-center">{{ store }}</h1>
+
+<h2 class="text-left">Description: <p> {{ store.description }} </p></h2>
+
+{% endblock %}

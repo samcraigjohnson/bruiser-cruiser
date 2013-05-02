@@ -1,0 +1,18 @@
+body{
+    background-color: white;
+}
+
+.navbar-inner{
+    background-color: #525C65;
+    
+}
+.navbar-inner a{
+    color:white !important;
+}
+#login{
+    border: 0;
+    border-bottom:1px solid #545454;
+}
+#title-nav{
+    border-radius:0;
+}

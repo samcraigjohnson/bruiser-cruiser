@@ -31,8 +31,33 @@
 	    {% block navmenuright %}
 	    <li><a href="#">About</a></li>
 	    <li><a href="#">Contact</a></li>
-	    <li><a href="/login">Member Login</a></li>
-	    
+	    {% if user.is_authenticated %}
+	       <li><a href={% url mainsite.views.profile %}> {{ user.username }}</a></li>
+	    {% else %}
+	    <li class="dropdown">
+	      <a href="#" role="button" class="no-prop dropdown-toggle" data-toggle="dropdown">Member Login <b class="caret"></b></a>
+	      <ul class="no-prop dropdown-menu" role="menu">
+		<form action="{% url django.contrib.auth.views.login %}" method="post">
+		  {% csrf_token %}
+		  <fieldset>
+		    <table>
+		      <tr>
+			<td>{{ form.username.label_tag }}</td>
+			<td>{{ form.username }}</td>
+		      </tr>
+		      <tr>
+			<td>{{ form.password.label_tag }}</td>
+			<td>{{ form.password }}</td>
+		      </tr>
+		    </table>
+		    
+		    <button  type="submit" value="login" class="btn btn-primary">Login</button>
+		    <input type="hidden" name="next" value="{{ next }}" />
+		  </fieldset>
+		</form>	
+	      </ul>
+	    </li>
+	    {% endif %}
 	    {% endblock %}
 	  </ul>
 	  {% endblock %}
@@ -50,6 +75,7 @@
     </div>      
   <script src="http://code.jquery.com/jquery.js"></script>
   <script src="{{ STATIC_URL }}bootstrap/js/bootstrap.min.js"></script>
+  <script src="{{ STATIC_URL }}js/base.js"></script>
   {% block scripts %}{% endblock %}
 </body>
 </html>

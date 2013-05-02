@@ -1,0 +1,22 @@
+body{
+    
+}
+.navbar {
+    margin-bottom: 0px;
+}
+
+#img-row{
+    border:0;
+    border-bottom:2px solid darkgrey;
+    margin-left:15px;
+    margin-right:15px;
+}
+
+#img-center
+{
+    background-image: url('../images/public_hardware.jpg');
+    background-color:#cccccc;
+    height: 350px;
+    margin-left:50px;
+    margin-right:50px;
+}

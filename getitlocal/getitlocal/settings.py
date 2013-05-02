@@ -66,6 +66,9 @@ STATIC_ROOT = '/home/html/django_templates/static/'
 # Example: "http://media.lawrence.com/static/"
 STATIC_URL = '/static/'
 
+LOGIN_URL= '/site/profile/'
+LOGIN_REDIRECT_URL = '/site/profile/'
+
 # Additional locations of static files
 STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".

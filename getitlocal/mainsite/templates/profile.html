@@ -1,5 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1> Hello {{ username }}! </h1>
+   <h3> Hello {{ user.username }}! </h3>
+   {% if form %}
+   <form action="{% url mainsite.views.profile %}" method="post">{% csrf_token %}
+     {{ form.as_p }}
+     <input type="submit" value="Submit" />
+   </form>
+   {% else %}
+     <h4> Hope everything is going well with <a href={{ store.url }}>{{ store.name }}</a>.</h4>
+     <p>Profile and Store Settings</p>
+   {% endif %}
 {% endblock %}

@@ -6,7 +6,7 @@
     {% if form.errors %}
     <p class="text-error"> Wrong username/password </p>
     {% endif %}
-    <form action="{% url mainsite.views.login_user %}" method="post">
+    <form action="{% url django.contrib.auth.views.login %}" method="post">
       {% csrf_token %}
       <fieldset>
 	<legend id="login">Member Login</legend>
