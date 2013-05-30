@@ -1,6 +1,6 @@
-from django.shortcuts import render_to_response, get_object_or_404
+from django.shortcuts import render_to_response, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User 
 from django.template import RequestContext
 from mainsite.models import Store, StoreForm
@@ -39,6 +39,11 @@ def has_store(user):
         return True
     else:
         return False
+
+@login_required
+def logout_view(request):
+		logout(request)
+		return redirect('/login/')
 
 #This is used to populate a stores basic data
 @login_required

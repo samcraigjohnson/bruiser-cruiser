@@ -3,13 +3,13 @@ from django.contrib.auth.models import User
 from django.forms import ModelForm
 
 LOCATIONS = (
-    ('Durham', 'DURHAM'), 
-    ('Indianapolis', 'INDY'), 
-    ('Baltimore', 'BMORE')
+    ('DURHAM', 'Durham'), 
+    ('INDIANAPOLIS', 'Indianapolis'), 
+    ('BALTIMORE', 'Baltimore')
     )
-CATS = (('Goods', 'GOODS'),
-        ( 'Services', 'SERVICES'),
-        ('Restaurants', 'STRAUNTS')
+CATS = (('GOODS', 'Goods'),
+        ( 'SERVICES', 'Services'),
+        ('RESTAURANTS', 'Restaurants')
         )
 
 #Used as information about a specific store

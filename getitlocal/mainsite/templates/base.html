@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link href="{{ STATIC_URL }}bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+  <link href="{{ STATIC_URL }}flat-ui/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
+  <link href="{{ STATIC_URL }}flat-ui/css/flat-ui.css" rel="stylesheet" media="screen">
   <link href="{{ STATIC_URL }}css/base.css" rel="stylesheet" type="text/css">
   {% block head %}{% endblock %}
   <title>{% block title %}Stocally{% endblock %}</title>
@@ -10,61 +11,42 @@
 
 <body>
   
-    <div id="container-fluid">
-      {% block container %}
-      <div class="navbar">
-	<div class="navbar-inner" id="title-nav">
-	  {% block navbarinner %}
-	  <a class="brand" href="{% url mainsite.views.homepage %}">Stocally</a>
-	  <ul class="nav" id="nav-menu-left">
-	    {% block navmenuleft %}
-	    <li class="dropdown">
-	      <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Durham <b class="caret"></b></a>
-	      <ul class="dropdown-menu" role="menu">
-		<li><a href="#">Durham</a></li>
-		<li><a href="#">Indianapolis</a></li>
-	      </ul>
-	    </li>
-	    {% endblock %}
-	  </ul>
-	  <ul class="nav pull-right" id="nav-menu-right">
-	    {% block navmenuright %}
-	    <li><a href="#">About</a></li>
-	    <li><a href="#">Contact</a></li>
-	    {% if user.is_authenticated %}
-	       <li><a href={% url mainsite.views.profile %}> {{ user.username }}</a></li>
-	    {% else %}
-	    <li class="dropdown">
-	      <a href="#" role="button" class="no-prop dropdown-toggle" data-toggle="dropdown">Member Login <b class="caret"></b></a>
-	      <ul class="no-prop dropdown-menu" role="menu">
-		<form action="{% url django.contrib.auth.views.login %}" method="post">
-		  {% csrf_token %}
-		  <fieldset>
-		    <table>
-		      <tr>
-			<td>{{ form.username.label_tag }}</td>
-			<td>{{ form.username }}</td>
-		      </tr>
-		      <tr>
-			<td>{{ form.password.label_tag }}</td>
-			<td>{{ form.password }}</td>
-		      </tr>
-		    </table>
-		    
-		    <button  type="submit" value="login" class="btn btn-primary">Login</button>
-		    <input type="hidden" name="next" value="{{ next }}" />
-		  </fieldset>
-		</form>	
-	      </ul>
-	    </li>
-	    {% endif %}
-	    {% endblock %}
-	  </ul>
-	  {% endblock %}
+	<div id="container-fluid">
+    {% block container %}
+  	<div class="navbar">
+			<div class="navbar-inner" id="title-nav">
+	  		{% block navbarinner %}
+	  		<a class="brand" href="{% url mainsite.views.homepage %}">Stocally</a>
+	  		<ul class="nav" id="nav-menu-left">
+	    		{% block navmenuleft %}
+	    		<li class="dropdown">
+	      		<a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Durham <b class="caret"></b></a>
+	      		<ul class="dropdown-menu" role="menu">
+							<li><a href="#">Durham</a></li>
+							<li><a href="#">Indianapolis</a></li>
+	      		</ul>
+	    		</li>
+	    		{% endblock %}
+	  		</ul>
+	  		<ul class="nav pull-right" id="nav-menu-right">
+	    		{% block navmenuright %}
+	    		<li><a href="#">About</a></li>
+	    		<li><a href="#">Contact</a></li>
+	    		{% if user.is_authenticated %}
+	       		<li><a href={% url mainsite.views.profile %}> {{ user.username }}'s Profile</a></li>
+						<li><a href="/logout/">Log Out</a></li>
+	    		{% else %}
+	      		<li><a href="/login/">Member Login</a></li>
+	    		{% endif %}
+	    		{% endblock %}
+	  		</ul>
+	  		{% endblock %}
+		</div> 
 	</div> 
-      </div> 
-      {% endblock %}
-      {% block content %}{% endblock %}
+ 		{% endblock %}
+
+{% block content %}
+{% endblock %}
     
    <!-- 
       <footer id="footer">
@@ -73,8 +55,8 @@
 	{% endblock %}
       </footer> -->
     </div>      
-  <script src="http://code.jquery.com/jquery.js"></script>
-  <script src="{{ STATIC_URL }}bootstrap/js/bootstrap.min.js"></script>
+  <script src="http://code.jquery.com/jquery.js></script>
+  <script src="{{ STATIC_URL }}flat-ui/bootstrap/js/bootstrap.min.js"></script>
   <script src="{{ STATIC_URL }}js/base.js"></script>
   {% block scripts %}{% endblock %}
 </body>
